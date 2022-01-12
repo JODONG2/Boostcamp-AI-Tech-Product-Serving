@@ -18,7 +18,7 @@ root_password = 'password'
 
 
 def main():
-    st.title("Mask Classification Model - Github Action Deploy")
+    st.title("Mask Classification Model")
 
     with open("config.yaml") as f:
         config = yaml.load(f, Loader=yaml.FullLoader)
@@ -43,6 +43,7 @@ def main():
 
 @cache_on_button_press('Authenticate')
 def authenticate(password) ->bool:
+    print(type(password))
     return password == root_password
 
 
@@ -53,4 +54,3 @@ if authenticate(password):
     main()
 else:
     st.error('The password is invalid.')
-
